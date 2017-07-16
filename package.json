@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/zhxiaogg/react-native-bmk/issues"
   },
-  "homepage": "https://github.com/zhxiaogg/react-native-bmk#readme"
+  "homepage": "https://github.com/zhxiaogg/react-native-bmk#readme",
+  "devDependencies": {
+    "react-native": "^0.46.3"
+  }
 }

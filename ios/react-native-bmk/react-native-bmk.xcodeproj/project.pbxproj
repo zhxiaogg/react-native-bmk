@@ -6,6 +6,10 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1CC5B63F2AB98C07BBBDFFBC /* libPods-react-native-bmk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 348592DB9CFC93A35B8EFF95 /* libPods-react-native-bmk.a */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3CD0FA7D1F1C28D200D9F8EA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,7 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		348592DB9CFC93A35B8EFF95 /* libPods-react-native-bmk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-react-native-bmk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD0FA7F1F1C28D200D9F8EA /* libreact-native-bmk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libreact-native-bmk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		596348D5F7569353AB263585 /* Pods-react-native-bmk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react-native-bmk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk.debug.xcconfig"; sourceTree = "<group>"; };
+		6AF50263C40A347FAC169C1A /* Pods-react-native-bmk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react-native-bmk.release.xcconfig"; path = "Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +34,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC5B63F2AB98C07BBBDFFBC /* libPods-react-native-bmk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25F777B10A2CDA6749719E85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				348592DB9CFC93A35B8EFF95 /* libPods-react-native-bmk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3CD0FA761F1C28D200D9F8EA = {
 			isa = PBXGroup;
 			children = (
 				3CD0FA811F1C28D200D9F8EA /* react-native-bmk */,
 				3CD0FA801F1C28D200D9F8EA /* Products */,
+				A3B7A2EFC3CE6A6CDF85FD3C /* Pods */,
+				25F777B10A2CDA6749719E85 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +74,15 @@
 			path = "react-native-bmk";
 			sourceTree = "<group>";
 		};
+		A3B7A2EFC3CE6A6CDF85FD3C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				596348D5F7569353AB263585 /* Pods-react-native-bmk.debug.xcconfig */,
+				6AF50263C40A347FAC169C1A /* Pods-react-native-bmk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -63,9 +90,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CD0FA881F1C28D200D9F8EA /* Build configuration list for PBXNativeTarget "react-native-bmk" */;
 			buildPhases = (
+				F5825E9A287078505ADE374A /* [CP] Check Pods Manifest.lock */,
 				3CD0FA7B1F1C28D200D9F8EA /* Sources */,
 				3CD0FA7C1F1C28D200D9F8EA /* Frameworks */,
 				3CD0FA7D1F1C28D200D9F8EA /* CopyFiles */,
+				3B3985210D19C50537E9A2C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -107,6 +136,45 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B3985210D19C50537E9A2C4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit_Subspec/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5825E9A287078505ADE374A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-react-native-bmk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3CD0FA7B1F1C28D200D9F8EA /* Sources */ = {
@@ -209,6 +277,7 @@
 		};
 		3CD0FA891F1C28D200D9F8EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 596348D5F7569353AB263585 /* Pods-react-native-bmk.debug.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -218,6 +287,7 @@
 		};
 		3CD0FA8A1F1C28D200D9F8EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF50263C40A347FAC169C1A /* Pods-react-native-bmk.release.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
