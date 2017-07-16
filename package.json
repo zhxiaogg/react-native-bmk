@@ -1,0 +1,24 @@
+{
+  "name": "react-native-bmk",
+  "version": "0.332.0",
+  "description": "react native bridge for baidu map kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhxiaogg/react-native-bmk.git"
+  },
+  "keywords": [
+    "react-native",
+    "baidu map",
+    "map"
+  ],
+  "author": "johnzh",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/zhxiaogg/react-native-bmk/issues"
+  },
+  "homepage": "https://github.com/zhxiaogg/react-native-bmk#readme"
+}
