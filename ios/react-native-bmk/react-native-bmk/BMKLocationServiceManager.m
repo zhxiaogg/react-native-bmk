@@ -75,12 +75,12 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
     CLHeading *heading = userLocation.heading;
     NSDictionary *locationJson = [self locationToJson:location];
     NSDictionary *headingJson = [self headingToJson:heading];
-    NSDictionary * json = @{
+    NSDictionary *json = @{
             @"isUpdating": @(userLocation.isUpdating),
-            @"location": locationJson==nil?[NSNull null]:locationJson,
-            @"heading": headingJson==nil?[NSNull null]:headingJson,
-            @"title": userLocation.title==nil?@"":userLocation.title,
-            @"subTitle": userLocation.subtitle==nil?@"":userLocation.subtitle
+            @"location": locationJson == nil ? [NSNull null] : locationJson,
+            @"heading": headingJson == nil ? [NSNull null] : headingJson,
+            @"title": userLocation.title == nil ? @"" : userLocation.title,
+            @"subTitle": userLocation.subtitle == nil ? @"" : userLocation.subtitle
     };
     return json;
 }
