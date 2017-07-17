@@ -281,6 +281,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 596348D5F7569353AB263585 /* Pods-react-native-bmk.debug.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -291,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AF50263C40A347FAC169C1A /* Pods-react-native-bmk.release.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
