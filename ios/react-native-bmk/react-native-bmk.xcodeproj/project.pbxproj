@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CD0FA931F1C340D00D9F8EA /* BMKMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FA921F1C340D00D9F8EA /* BMKMapViewManager.m */; };
+		EDFC7B548C46A228BA1AD286 /* BMKLocationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		3CD0FA941F1C341A00D9F8EA /* BMKMapViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMKMapViewManager.h; sourceTree = "<group>"; };
 		596348D5F7569353AB263585 /* Pods-react-native-bmk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react-native-bmk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk.debug.xcconfig"; sourceTree = "<group>"; };
 		6AF50263C40A347FAC169C1A /* Pods-react-native-bmk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react-native-bmk.release.xcconfig"; path = "Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk.release.xcconfig"; sourceTree = "<group>"; };
+		EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKLocationServiceManager.m; sourceTree = "<group>"; };
+		EDFC7F10A2446216EDB4C649 /* BMKLocationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKLocationServiceManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 			children = (
 				3CD0FA921F1C340D00D9F8EA /* BMKMapViewManager.m */,
 				3CD0FA941F1C341A00D9F8EA /* BMKMapViewManager.h */,
+				EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */,
+				EDFC7F10A2446216EDB4C649 /* BMKLocationServiceManager.h */,
 			);
 			path = "react-native-bmk";
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CD0FA931F1C340D00D9F8EA /* BMKMapViewManager.m in Sources */,
+				EDFC7B548C46A228BA1AD286 /* BMKLocationServiceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

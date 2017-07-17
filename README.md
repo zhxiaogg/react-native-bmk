@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 - [ ] ios
   - [ ] Base Module
   - [ ] MapView Module
-    - [ ] MapView(basic properties & methods)
+    - [x] MapView(basic properties & methods)
     - [ ] MapView(LocationViewAPI)
     - [ ] MapView(AnnotationAPI)
     - [ ] MapView(HeatMapAPI)
