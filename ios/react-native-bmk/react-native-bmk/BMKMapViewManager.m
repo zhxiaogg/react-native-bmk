@@ -7,8 +7,6 @@
 //
 
 #import "BMKMapViewManager.h"
-#import "RCTConvert+CoreLocation.h"
-
 #import <BaiduMapAPI_Map/BMKMapView.h>
 
 @implementation BMKMapViewManager
