@@ -5,6 +5,10 @@
 
 #import "BMKLocationServiceManager.h"
 
+/**
+ * TODO: 1. support multiple location service
+ * TODO: 2. optimize event emitter by reducing unnecessary events
+ */
 @implementation BMKLocationServiceManager
 
 RCT_EXPORT_MODULE();
@@ -43,23 +47,19 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
 }
 
 - (void)willStartLocatingUser {
-    NSLog(@"event: willStartLocatingUser");
     [self sendEventWithName:@"willStartLocatingUser" body:nil];
 }
 
 - (void)didStopLocatingUser {
-    NSLog(@"event: didStopLocatingUser");
     [self sendEventWithName:@"didStopLocatingUser" body:nil];
 }
 
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation {
-    NSLog(@"event: didUpdateUserHeading");
     id json = [self toJson:userLocation];
     [self sendEventWithName:@"didUpdateUserHeading" body:json];
 }
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
-    NSLog(@"event: didUpdateBMKUserLocation");
     id json = [self toJson:userLocation];
     [self sendEventWithName:@"didUpdateBMKUserLocation" body:json];
 }
@@ -70,23 +70,23 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
 //    [self sendEventWithName:@"didUpdateBMKUserLocation" body:json];
 //}
 
-- (NSDictionary *)toJson:(BMKUserLocation *)userLocation {
+- (id)toJson:(BMKUserLocation *)userLocation {
     CLLocation *location = userLocation.location;
     CLHeading *heading = userLocation.heading;
     NSDictionary *locationJson = [self locationToJson:location];
     NSDictionary *headingJson = [self headingToJson:heading];
     NSDictionary *json = @{
             @"isUpdating": @(userLocation.isUpdating),
-            @"location": locationJson == nil ? [NSNull null] : locationJson,
-            @"heading": headingJson == nil ? [NSNull null] : headingJson,
+            @"location": locationJson,
+            @"heading": headingJson,
             @"title": userLocation.title == nil ? @"" : userLocation.title,
             @"subTitle": userLocation.subtitle == nil ? @"" : userLocation.subtitle
     };
     return json;
 }
 
-- (NSDictionary *)headingToJson:(CLHeading *)heading {
-    return heading == nil ? nil : @{
+- (id)headingToJson:(CLHeading *)heading {
+    return heading == nil ? [NSNull null] : @{
             @"headingAccuracy": @(heading.headingAccuracy),
             @"magneticHeading": @(heading.magneticHeading),
             @"timestamp": @(heading.timestamp.timeIntervalSince1970),
@@ -97,9 +97,9 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
     };
 }
 
-- (NSDictionary *)locationToJson:(CLLocation *)location {
+- (id)locationToJson:(CLLocation *)location {
 
-    return location == nil ? nil : @{
+    return location == nil ? [NSNull null] : @{
             @"coordinate": @{
                     @"latitude": @(location.coordinate.latitude),
                     @"longitude": @(location.coordinate.longitude),

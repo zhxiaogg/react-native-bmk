@@ -12,6 +12,6 @@
     BMKLocationService *locationService;
 }
 
-- (NSDictionary *)toJson:(BMKUserLocation *)userLocation;
+- (id)toJson:(BMKUserLocation *)userLocation;
 
 @end
