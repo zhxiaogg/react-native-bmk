@@ -1,0 +1,5 @@
+.DS_Store
+npm-debug.log
+Pods/
+Podfile.lock
+xcuserdata/

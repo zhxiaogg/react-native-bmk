@@ -12,6 +12,8 @@
 
 @implementation BMKMapViewManager
 
+RCT_EXPORT_MODULE()
+
 - (UIView *)view
 {
     return [[BMKMapView alloc] init]

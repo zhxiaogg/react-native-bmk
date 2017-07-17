@@ -6,7 +6,7 @@
 //  Copyright © 2017年 com.johnzh. All rights reserved.
 //
 
-#import <React/RCTViewManager>
+#import <React/RCTViewManager.h>
 
 #ifndef BMKMapViewManager_h
 #define BMKMapViewManager_h
