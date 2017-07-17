@@ -70,17 +70,17 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
 //    [self sendEventWithName:@"didUpdateBMKUserLocation" body:json];
 //}
 
-- (id)toJson:(BMKUserLocation *)userLocation {
+- (NSDictionary *)toJson:(BMKUserLocation *)userLocation {
     CLLocation *location = userLocation.location;
     CLHeading *heading = userLocation.heading;
     NSDictionary *locationJson = [self locationToJson:location];
     NSDictionary *headingJson = [self headingToJson:heading];
-    id json = @{
+    NSDictionary * json = @{
             @"isUpdating": @(userLocation.isUpdating),
-            @"location": locationJson,
-            @"heading": headingJson,
-            @"title": userLocation.title,
-            @"subTitle": userLocation.subtitle
+            @"location": locationJson==nil?[NSNull null]:locationJson,
+            @"heading": headingJson==nil?[NSNull null]:headingJson,
+            @"title": userLocation.title==nil?@"":userLocation.title,
+            @"subTitle": userLocation.subtitle==nil?@"":userLocation.subtitle
     };
     return json;
 }

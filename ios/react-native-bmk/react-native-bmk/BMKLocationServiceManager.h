@@ -11,4 +11,7 @@
 @interface BMKLocationServiceManager : RCTEventEmitter <RCTBridgeModule, BMKLocationServiceDelegate> {
     BMKLocationService *locationService;
 }
+
+- (NSDictionary *)toJson:(BMKUserLocation *)userLocation;
+
 @end

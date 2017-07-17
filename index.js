@@ -17,7 +17,7 @@ class BMKLocationService {
     eventNames.forEach((eventName) => {
       const handler = locationServiceDelegate[eventName];
       if(handler) {
-        locationServiceEventEmitter.addListener(eventName, (value) => handler.apply(value));
+        locationServiceEventEmitter.addListener(eventName, (value) => handler(value));
       }
     });
   }
