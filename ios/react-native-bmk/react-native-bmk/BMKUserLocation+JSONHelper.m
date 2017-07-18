@@ -5,7 +5,7 @@
 
 #import "BMKUserLocation+JSONHelper.h"
 #import "BMKUserLocation+Writable.h"
-#import "CLHeadingImpl.h"
+#import "RCT_CLHeading.h"
 
 
 @implementation BMKUserLocation (JSONHelper)
@@ -36,7 +36,7 @@
         CLHeadingComponentValue y = [headingDic[@"y"] doubleValue];
         CLHeadingComponentValue z = [headingDic[@"z"] doubleValue];
         NSDate *timestamp = [[NSDate alloc] initWithTimeIntervalSince1970:[headingDic[@"timestamp"] doubleValue]];
-        CLHeading *heading = [[CLHeadingImpl alloc] initWithMagneticHeading:magneticHeading trueHeading:trueHeading headingAccuracy:headingAccuracy x:x y:y z:z timestamp:timestamp];
+        CLHeading *heading = [[RCT_CLHeading alloc] initWithMagneticHeading:magneticHeading trueHeading:trueHeading headingAccuracy:headingAccuracy x:x y:y z:z timestamp:timestamp];
         [self writeHeading:heading];
     }
     return self;

@@ -5,7 +5,7 @@
 
 #import <CoreLocation/CLHeading.h>
 
-@interface CLHeadingImpl : CLHeading
+@interface RCT_CLHeading : CLHeading
 
 - initWithMagneticHeading:(CLLocationDirection)magneticHeading
               trueHeading:(CLLocationDirection)trueHeading

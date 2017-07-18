@@ -8,14 +8,16 @@
 
 #import "BMKMapViewManager.h"
 #import "BMKUserLocation+JSONHelper.h"
-#import "ExtendedBMKMapView.h"
+#import "RCT_BMKMapView.h"
 
-@implementation BMKMapViewManager
+@implementation BMKMapViewManager {
+
+}
 
 RCT_EXPORT_MODULE()
 
 - (UIView *)view {
-    ExtendedBMKMapView *mapView = [[ExtendedBMKMapView alloc] init];
+    RCT_BMKMapView *mapView = [[RCT_BMKMapView alloc] init];
     mapView.delegate = self;
     return mapView;
 }
@@ -74,7 +76,8 @@ RCT_EXPORT_VIEW_PROPERTY(showsUserLocation, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(userTrackingMode, BMKUserTrackingMode)
 
 // method -(void)updateLocationData:(BMKUserLocation*)userLocation;
-RCT_CUSTOM_VIEW_PROPERTY(userLocation, BMKUserLocation, ExtendedBMKMapView) {
+//TODO: use RCT_EXPORT_VIEW_PROPERTY
+RCT_CUSTOM_VIEW_PROPERTY(userLocation, BMKUserLocation, RCT_BMKMapView) {
     NSDictionary *dictionary = [RCTConvert NSDictionary:json];
     BMKUserLocation *location = [[BMKUserLocation alloc] initWithDictionary:dictionary];
     [view updateLocationData:location];
@@ -106,28 +109,28 @@ RCT_EXPORT_VIEW_PROPERTY(onLongClick, RCTBubblingEventBlock)
 
 RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
 
-- (void)mapViewDidFinishLoading:(ExtendedBMKMapView *)mapView {
+- (void)mapViewDidFinishLoading:(RCT_BMKMapView *)mapView {
     if (!mapView.onDidFinishLoading) {
         return;
     }
     mapView.onDidFinishLoading(nil);
 }
 
-- (void)mapViewDidFinishRendering:(ExtendedBMKMapView *)mapView {
+- (void)mapViewDidFinishRendering:(RCT_BMKMapView *)mapView {
     if (!mapView.onDidFinishRendering) {
         return;
     }
     mapView.onDidFinishRendering(nil);
 }
 
-- (void)mapView:(ExtendedBMKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+- (void)mapView:(RCT_BMKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     if (!mapView.onRegionWillChange) {
         return;
     }
     mapView.onRegionWillChange([self regionToDic:mapView.region]);
 }
 
-- (void)mapView:(ExtendedBMKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+- (void)mapView:(RCT_BMKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     if (!mapView.onRegionDidChange) {
         return;
     }
@@ -135,49 +138,49 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
 }
 
 //TODO: send annotation view back
-- (void)mapView:(ExtendedBMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+- (void)mapView:(RCT_BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     if (!mapView.onDidAddAnnotationViews) {
         return;
     }
     mapView.onDidAddAnnotationViews(nil);
 }
 
-- (void)mapView:(ExtendedBMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
+- (void)mapView:(RCT_BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
     if (!mapView.onDidSelectAnnotationView) {
         return;
     }
     mapView.onDidSelectAnnotationView(nil);
 }
 
-- (void)mapView:(ExtendedBMKMapView *)mapView didDeselectAnnotationView:(BMKAnnotationView *)view {
+- (void)mapView:(RCT_BMKMapView *)mapView didDeselectAnnotationView:(BMKAnnotationView *)view {
     if (!mapView.onDidDeselectAnnotationView) {
         return;
     }
     mapView.onDidDeselectAnnotationView(nil);
 }
 
-- (void)mapView:(ExtendedBMKMapView *)mapView onClickedMapPoi:(BMKMapPoi *)mapPoi {
+- (void)mapView:(RCT_BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi *)mapPoi {
     if (!mapView.onClickedMapPoi) {
         return;
     }
     mapView.onClickedMapPoi([self mapPoiToDic:mapPoi]);
 }
 
-- (void)mapView:(ExtendedBMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(RCT_BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
     if (!mapView.onClickedMapBlank) {
         return;
     }
     mapView.onClickedMapBlank([self coordinateToDic:coordinate]);
 }
 
-- (void)mapview:(ExtendedBMKMapView *)mapView onDoubleClick:(CLLocationCoordinate2D)coordinate {
+- (void)mapview:(RCT_BMKMapView *)mapView onDoubleClick:(CLLocationCoordinate2D)coordinate {
     if (!mapView.onDoubleClick) {
         return;
     }
     mapView.onDoubleClick([self coordinateToDic:coordinate]);
 }
 
-- (void)mapview:(ExtendedBMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate {
+- (void)mapview:(RCT_BMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate {
     if (!mapView.onLongClick) {
         return;
     }
@@ -185,7 +188,7 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
 }
 
 //TODO: send map status back
-- (void)mapStatusDidChanged:(ExtendedBMKMapView *)mapView {
+- (void)mapStatusDidChanged:(RCT_BMKMapView *)mapView {
     if (!mapView.onMapStatusDidChanged) {
         return;
     }
@@ -218,63 +221,24 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     };
 }
 
-@end
+#pragma mark Annotation API
 
-@implementation RCTConvert (BMKUserTrackingMode)
+RCT_EXPORT_VIEW_PROPERTY(annotations, NSArray<RCT_BMKAnnotation> *)
 
-RCT_ENUM_CONVERTER(
-        BMKUserTrackingMode,
-        (@{
-                @"BMKUserTrackingModeNone": @(BMKUserTrackingModeNone),
-                @"BMKUserTrackingModeHeading": @(BMKUserTrackingModeHeading),
-                @"BMKUserTrackingModeFollow": @(BMKUserTrackingModeFollow),
-                @"BMKUserTrackingModeFollowWithHeading": @(BMKUserTrackingModeFollowWithHeading)
-        }),
-        BMKUserTrackingModeNone,
-        integerValue)
-
-@end
-
-@implementation RCTConvert (BMKMapType)
-
-RCT_ENUM_CONVERTER(
-        BMKMapType,
-        (@{
-                @"BMKMapTypeNone": @(BMKMapTypeNone),
-                @"BMKMapTypeStandard": @(BMKMapTypeStandard),
-                @"BMKMapTypeSatellite": @(BMKMapTypeSatellite)
-        }),
-        BMKMapTypeStandard,
-        integerValue)
-
-@end
-
-@implementation RCTConvert (BMKLogoPosition)
-
-RCT_ENUM_CONVERTER(
-        BMKLogoPosition,
-        (@{
-                @"BMKLogoPositionLeftBottom": @(BMKLogoPositionLeftBottom),
-                @"BMKLogoPositionLeftTop": @(BMKLogoPositionLeftTop),
-                @"BMKLogoPositionCenterBottom": @(BMKLogoPositionCenterBottom),
-                @"BMKLogoPositionCenterTop": @(BMKLogoPositionCenterTop),
-                @"BMKLogoPositionRightBottom": @(BMKLogoPositionRightBottom),
-                @"BMKLogoPositionRightTop": @(BMKLogoPositionRightTop)
-        }),
-        BMKLogoPositionLeftBottom,
-        integerValue)
-@end
-
-@implementation RCTConvert (CLLocationCoordinate2D)
-RCT_CONVERTER(CLLocationDegrees, CLLocationDegrees, doubleValue)
-
-RCT_CONVERTER(CLLocationDistance, CLLocationDistance, doubleValue)
-
-+ (CLLocationCoordinate2D)CLLocationCoordinate2D:(id)json {
-    json = [self NSDictionary:json];
-    return (CLLocationCoordinate2D) {
-            [self CLLocationDegrees:json[@"latitude"]],
-            [self CLLocationDegrees:json[@"longitude"]]
-    };
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation {
+    if (![annotation isKindOfClass:[RCT_BMKAnnotation class]]) {
+        return nil;
+    }
+    RCT_BMKAnnotation *annotation1 = annotation;
+    NSString *reuseIdentifier = NSStringFromClass([BMKAnnotationView class]);
+    BMKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+    if (!annotationView) {
+        annotationView = [[BMKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    }
+    annotationView.image = annotation1.image;
+    annotationView.center = annotation1.centerOffset;
+    return annotationView;
 }
+
+
 @end
