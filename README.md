@@ -54,7 +54,9 @@ const styles = StyleSheet.create({
     - [ ] MapView(InDoorMapAPI)
     - [ ] MapView(OverlaysAPI)
   - [ ] Search Module
-  - [ ] Location Module
+  - [x] Location Module
+    - [ ] ease of use: support multiple location service instance
+    - [ ] optimization for event callback
   - [ ] Cloud Module
   - [ ] Radar Module
   - [ ] Utils Module
