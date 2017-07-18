@@ -7,18 +7,20 @@
 //
 
 #import "BMKMapViewManager.h"
-#import "BMKUserLocation+Writable.h"
 #import "BMKUserLocation+JSONHelper.h"
-#import <BaiduMapAPI_Map/BMKMapView.h>
+#import "ExtendedBMKMapView.h"
 
 @implementation BMKMapViewManager
 
 RCT_EXPORT_MODULE()
 
 - (UIView *)view {
-    return [[BMKMapView alloc] init];
+    ExtendedBMKMapView *mapView = [[ExtendedBMKMapView alloc] init];
+    mapView.delegate = self;
+    return mapView;
 }
 
+#pragma mark properties
 //////////////////////////////////////////////////////////
 // properties
 //////////////////////////////////////////////////////////
@@ -64,7 +66,6 @@ RCT_EXPORT_VIEW_PROPERTY(logoPosition, BMKLogoPosition)
 // property updateTargetScreenPtWhenMapPaddingChanged
 // property ChangeWithTouchPointCenterEnabled
 
-
 #pragma mark LocationViewAPI
 
 // property BOOL showsUserLocation;
@@ -73,11 +74,150 @@ RCT_EXPORT_VIEW_PROPERTY(showsUserLocation, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(userTrackingMode, BMKUserTrackingMode)
 
 // method -(void)updateLocationData:(BMKUserLocation*)userLocation;
-RCT_CUSTOM_VIEW_PROPERTY(userLocation, BMKUserLocation, BMKMapView) {
+RCT_CUSTOM_VIEW_PROPERTY(userLocation, BMKUserLocation, ExtendedBMKMapView) {
     NSDictionary *dictionary = [RCTConvert NSDictionary:json];
     BMKUserLocation *location = [[BMKUserLocation alloc] initWithDictionary:dictionary];
     [view updateLocationData:location];
 }
+
+#pragma mark event callbacks
+
+RCT_EXPORT_VIEW_PROPERTY(onDidFinishLoading, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onDidFinishRendering, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onRegionWillChange, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onRegionDidChange, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onDidAddAnnotationViews, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onDidSelectAnnotationView, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onDidDeselectAnnotationView, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onClickedMapPoi, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onClickedMapBlank, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onDoubleClick, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onLongClick, RCTBubblingEventBlock)
+
+RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
+
+- (void)mapViewDidFinishLoading:(ExtendedBMKMapView *)mapView {
+    if (!mapView.onDidFinishLoading) {
+        return;
+    }
+    mapView.onDidFinishLoading(nil);
+}
+
+- (void)mapViewDidFinishRendering:(ExtendedBMKMapView *)mapView {
+    if (!mapView.onDidFinishRendering) {
+        return;
+    }
+    mapView.onDidFinishRendering(nil);
+}
+
+- (void)mapView:(ExtendedBMKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    if (!mapView.onRegionWillChange) {
+        return;
+    }
+    mapView.onRegionWillChange([self regionToDic:mapView.region]);
+}
+
+- (void)mapView:(ExtendedBMKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if (!mapView.onRegionDidChange) {
+        return;
+    }
+    mapView.onRegionDidChange([self regionToDic:mapView.region]);
+}
+
+//TODO: send annotation view back
+- (void)mapView:(ExtendedBMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    if (!mapView.onDidAddAnnotationViews) {
+        return;
+    }
+    mapView.onDidAddAnnotationViews(nil);
+}
+
+- (void)mapView:(ExtendedBMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
+    if (!mapView.onDidSelectAnnotationView) {
+        return;
+    }
+    mapView.onDidSelectAnnotationView(nil);
+}
+
+- (void)mapView:(ExtendedBMKMapView *)mapView didDeselectAnnotationView:(BMKAnnotationView *)view {
+    if (!mapView.onDidDeselectAnnotationView) {
+        return;
+    }
+    mapView.onDidDeselectAnnotationView(nil);
+}
+
+- (void)mapView:(ExtendedBMKMapView *)mapView onClickedMapPoi:(BMKMapPoi *)mapPoi {
+    if (!mapView.onClickedMapPoi) {
+        return;
+    }
+    mapView.onClickedMapPoi([self mapPoiToDic:mapPoi]);
+}
+
+- (void)mapView:(ExtendedBMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
+    if (!mapView.onClickedMapBlank) {
+        return;
+    }
+    mapView.onClickedMapBlank([self coordinateToDic:coordinate]);
+}
+
+- (void)mapview:(ExtendedBMKMapView *)mapView onDoubleClick:(CLLocationCoordinate2D)coordinate {
+    if (!mapView.onDoubleClick) {
+        return;
+    }
+    mapView.onDoubleClick([self coordinateToDic:coordinate]);
+}
+
+- (void)mapview:(ExtendedBMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate {
+    if (!mapView.onLongClick) {
+        return;
+    }
+    mapView.onLongClick([self coordinateToDic:coordinate]);
+}
+
+//TODO: send map status back
+- (void)mapStatusDidChanged:(ExtendedBMKMapView *)mapView {
+    if (!mapView.onMapStatusDidChanged) {
+        return;
+    }
+    mapView.onMapStatusDidChanged(nil);
+}
+
+// helper functions:
+- (NSDictionary *)coordinateToDic:(CLLocationCoordinate2D)coordinate {
+    return @{
+            @"longitude": @(coordinate.longitude),
+            @"latitude": @(coordinate.latitude)
+    };
+}
+
+- (NSDictionary *)regionToDic:(BMKCoordinateRegion)region {
+    return @{
+            @"center": [self coordinateToDic:region.center],
+            @"span": @{
+                    @"latitudeDelta": @(region.span.latitudeDelta),
+                    @"longitudeDelta": @(region.span.longitudeDelta)
+            }
+    };
+}
+
+- (NSDictionary *)mapPoiToDic:(BMKMapPoi *)mapPoi {
+    return @{
+            @"text": mapPoi.text == nil ? @"" : mapPoi.text,
+            @"pt": [self coordinateToDic:mapPoi.pt],
+            @"uid": mapPoi.uid == nil ? @"" : mapPoi.uid
+    };
+}
+
 @end
 
 @implementation RCTConvert (BMKUserTrackingMode)

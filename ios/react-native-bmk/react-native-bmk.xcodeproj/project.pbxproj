@@ -10,6 +10,7 @@
 		3CD0FA931F1C340D00D9F8EA /* BMKMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FA921F1C340D00D9F8EA /* BMKMapViewManager.m */; };
 		3CD0FAFA1F1CC93C00D9F8EA /* libreact-native-bmk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD0FA7F1F1C28D200D9F8EA /* libreact-native-bmk.a */; };
 		3CD0FB011F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FB001F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m */; };
+		EDFC7185DFD72B68E5D4D11B /* ExtendedBMKMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC75E4CA6D4AA718F0D8CF /* ExtendedBMKMapView.m */; };
 		EDFC775722F0A1CB5CDF2925 /* BMKUserLocation+JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */; };
 		EDFC7B548C46A228BA1AD286 /* BMKLocationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */; };
 		EDFC7CE9A2F1F1B3690F91F1 /* BMKUserLocation+Writable.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */; };
@@ -51,6 +52,8 @@
 		EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKUserLocation+JSONHelper.m"; sourceTree = "<group>"; };
 		EDFC71D02EAE6B5F8AECCDF6 /* BMKUserLocation+JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKUserLocation+JSONHelper.h"; sourceTree = "<group>"; };
 		EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKUserLocation+Writable.m"; sourceTree = "<group>"; };
+		EDFC75E4CA6D4AA718F0D8CF /* ExtendedBMKMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedBMKMapView.m; sourceTree = "<group>"; };
+		EDFC762BFADFF617B1CD1610 /* ExtendedBMKMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedBMKMapView.h; sourceTree = "<group>"; };
 		EDFC7663B30814888C094599 /* BMKUserLocation+Writable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKUserLocation+Writable.h"; sourceTree = "<group>"; };
 		EDFC7AFA4E167149A068C3F3 /* CLHeadingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHeadingImpl.m; sourceTree = "<group>"; };
 		EDFC7CDD0855F1E4FED3E6A0 /* CLHeadingImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHeadingImpl.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 				EDFC7CDD0855F1E4FED3E6A0 /* CLHeadingImpl.h */,
 				EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */,
 				EDFC71D02EAE6B5F8AECCDF6 /* BMKUserLocation+JSONHelper.h */,
+				EDFC75E4CA6D4AA718F0D8CF /* ExtendedBMKMapView.m */,
+				EDFC762BFADFF617B1CD1610 /* ExtendedBMKMapView.h */,
 			);
 			path = "react-native-bmk";
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				EDFC7CE9A2F1F1B3690F91F1 /* BMKUserLocation+Writable.m in Sources */,
 				EDFC7D48695BDB1440B56373 /* CLHeadingImpl.m in Sources */,
 				EDFC775722F0A1CB5CDF2925 /* BMKUserLocation+JSONHelper.m in Sources */,
+				EDFC7185DFD72B68E5D4D11B /* ExtendedBMKMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

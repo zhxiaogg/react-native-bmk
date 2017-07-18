@@ -7,11 +7,12 @@
 //
 
 #import <React/RCTViewManager.h>
+#import <BaiduMapAPI_Map/BMKMapView.h>
 
 #ifndef BMKMapViewManager_h
 #define BMKMapViewManager_h
 
-@interface BMKMapViewManager : RCTViewManager
+@interface BMKMapViewManager : RCTViewManager <BMKMapViewDelegate>
 
 @end
 
