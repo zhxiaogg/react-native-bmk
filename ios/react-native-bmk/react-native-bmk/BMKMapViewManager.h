@@ -14,4 +14,5 @@
 @interface BMKMapViewManager : RCTViewManager
 
 @end
+
 #endif /* BMKMapViewManager_h */

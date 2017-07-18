@@ -4,6 +4,7 @@
 //
 
 #import "BMKLocationServiceManager.h"
+#import "BMKUserLocation+JSONHelper.h"
 
 /**
  * TODO: 1. support multiple location service
@@ -55,12 +56,12 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
 }
 
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation {
-    id json = [self toJson:userLocation];
+    id json = [userLocation toDictionary];
     [self sendEventWithName:@"didUpdateUserHeading" body:json];
 }
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
-    id json = [self toJson:userLocation];
+    id json = [userLocation toDictionary];
     [self sendEventWithName:@"didUpdateBMKUserLocation" body:json];
 }
 
@@ -70,48 +71,6 @@ RCT_EXPORT_METHOD(stopUserLocationService) {
 //    [self sendEventWithName:@"didUpdateBMKUserLocation" body:json];
 //}
 
-- (id)toJson:(BMKUserLocation *)userLocation {
-    CLLocation *location = userLocation.location;
-    CLHeading *heading = userLocation.heading;
-    NSDictionary *locationJson = [self locationToJson:location];
-    NSDictionary *headingJson = [self headingToJson:heading];
-    NSDictionary *json = @{
-            @"isUpdating": @(userLocation.isUpdating),
-            @"location": locationJson,
-            @"heading": headingJson,
-            @"title": userLocation.title == nil ? @"" : userLocation.title,
-            @"subTitle": userLocation.subtitle == nil ? @"" : userLocation.subtitle
-    };
-    return json;
-}
-
-- (id)headingToJson:(CLHeading *)heading {
-    return heading == nil ? [NSNull null] : @{
-            @"headingAccuracy": @(heading.headingAccuracy),
-            @"magneticHeading": @(heading.magneticHeading),
-            @"timestamp": @(heading.timestamp.timeIntervalSince1970),
-            @"trueHeading": @(heading.trueHeading),
-            @"x": @(heading.x),
-            @"y": @(heading.y),
-            @"z": @(heading.z)
-    };
-}
-
-- (id)locationToJson:(CLLocation *)location {
-
-    return location == nil ? [NSNull null] : @{
-            @"coordinate": @{
-                    @"latitude": @(location.coordinate.latitude),
-                    @"longitude": @(location.coordinate.longitude),
-            },
-            @"altitude": @(location.altitude),
-            @"speed": @(location.speed),
-            @"timestamp": @(location.timestamp.timeIntervalSince1970),
-            @"horizontalAccuracy": @(location.horizontalAccuracy),
-            @"verticalAccuracy": @(location.verticalAccuracy),
-            @"course": @(location.course)
-    };
-}
 
 //////////////////////////////////////////////////////////
 // properties

@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		3CD0FA931F1C340D00D9F8EA /* BMKMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FA921F1C340D00D9F8EA /* BMKMapViewManager.m */; };
 		3CD0FAFA1F1CC93C00D9F8EA /* libreact-native-bmk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD0FA7F1F1C28D200D9F8EA /* libreact-native-bmk.a */; };
-		3CD0FB011F1CC97800D9F8EA /* TestBMKLocationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FB001F1CC97800D9F8EA /* TestBMKLocationServiceManager.m */; };
+		3CD0FB011F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FB001F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m */; };
+		EDFC775722F0A1CB5CDF2925 /* BMKUserLocation+JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */; };
 		EDFC7B548C46A228BA1AD286 /* BMKLocationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */; };
+		EDFC7CE9A2F1F1B3690F91F1 /* BMKUserLocation+Writable.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */; };
+		EDFC7D48695BDB1440B56373 /* CLHeadingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7AFA4E167149A068C3F3 /* CLHeadingImpl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +44,16 @@
 		3CD0FA941F1C341A00D9F8EA /* BMKMapViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMKMapViewManager.h; sourceTree = "<group>"; };
 		3CD0FAF51F1CC93C00D9F8EA /* BMK_Bridge_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMK_Bridge_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD0FAF91F1CC93C00D9F8EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CD0FB001F1CC97800D9F8EA /* TestBMKLocationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBMKLocationServiceManager.m; sourceTree = "<group>"; };
+		3CD0FB001F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBMKUserLocationDerSer.m; sourceTree = "<group>"; };
 		596348D5F7569353AB263585 /* Pods-react-native-bmk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react-native-bmk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk.debug.xcconfig"; sourceTree = "<group>"; };
 		6AF50263C40A347FAC169C1A /* Pods-react-native-bmk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react-native-bmk.release.xcconfig"; path = "Pods/Target Support Files/Pods-react-native-bmk/Pods-react-native-bmk.release.xcconfig"; sourceTree = "<group>"; };
 		E0C0AA456C43EDAE8715A1B4 /* Pods-BMK_Bridge_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMK_Bridge_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BMK_Bridge_Tests/Pods-BMK_Bridge_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKUserLocation+JSONHelper.m"; sourceTree = "<group>"; };
+		EDFC71D02EAE6B5F8AECCDF6 /* BMKUserLocation+JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKUserLocation+JSONHelper.h"; sourceTree = "<group>"; };
+		EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKUserLocation+Writable.m"; sourceTree = "<group>"; };
+		EDFC7663B30814888C094599 /* BMKUserLocation+Writable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKUserLocation+Writable.h"; sourceTree = "<group>"; };
+		EDFC7AFA4E167149A068C3F3 /* CLHeadingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHeadingImpl.m; sourceTree = "<group>"; };
+		EDFC7CDD0855F1E4FED3E6A0 /* CLHeadingImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHeadingImpl.h; sourceTree = "<group>"; };
 		EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKLocationServiceManager.m; sourceTree = "<group>"; };
 		EDFC7F10A2446216EDB4C649 /* BMKLocationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKLocationServiceManager.h; sourceTree = "<group>"; };
 		F65D1CA438F12539645FC967 /* Pods-BMK_Bridge_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMK_Bridge_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BMK_Bridge_Tests/Pods-BMK_Bridge_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +112,12 @@
 				3CD0FA941F1C341A00D9F8EA /* BMKMapViewManager.h */,
 				EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */,
 				EDFC7F10A2446216EDB4C649 /* BMKLocationServiceManager.h */,
+				EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */,
+				EDFC7663B30814888C094599 /* BMKUserLocation+Writable.h */,
+				EDFC7AFA4E167149A068C3F3 /* CLHeadingImpl.m */,
+				EDFC7CDD0855F1E4FED3E6A0 /* CLHeadingImpl.h */,
+				EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */,
+				EDFC71D02EAE6B5F8AECCDF6 /* BMKUserLocation+JSONHelper.h */,
 			);
 			path = "react-native-bmk";
 			sourceTree = "<group>";
@@ -110,7 +125,7 @@
 		3CD0FAF61F1CC93C00D9F8EA /* BMK_Bridge_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3CD0FB001F1CC97800D9F8EA /* TestBMKLocationServiceManager.m */,
+				3CD0FB001F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m */,
 				3CD0FAF91F1CC93C00D9F8EA /* Info.plist */,
 			);
 			path = BMK_Bridge_Tests;
@@ -315,6 +330,9 @@
 			files = (
 				3CD0FA931F1C340D00D9F8EA /* BMKMapViewManager.m in Sources */,
 				EDFC7B548C46A228BA1AD286 /* BMKLocationServiceManager.m in Sources */,
+				EDFC7CE9A2F1F1B3690F91F1 /* BMKUserLocation+Writable.m in Sources */,
+				EDFC7D48695BDB1440B56373 /* CLHeadingImpl.m in Sources */,
+				EDFC775722F0A1CB5CDF2925 /* BMKUserLocation+JSONHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD0FB011F1CC97800D9F8EA /* TestBMKLocationServiceManager.m in Sources */,
+				3CD0FB011F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnzh.BMK-Bridge-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -472,6 +491,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnzh.BMK-Bridge-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

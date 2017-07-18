@@ -12,6 +12,4 @@
     BMKLocationService *locationService;
 }
 
-- (id)toJson:(BMKUserLocation *)userLocation;
-
 @end

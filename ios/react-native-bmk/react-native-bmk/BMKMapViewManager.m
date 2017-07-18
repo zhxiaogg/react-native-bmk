@@ -7,6 +7,8 @@
 //
 
 #import "BMKMapViewManager.h"
+#import "BMKUserLocation+Writable.h"
+#import "BMKUserLocation+JSONHelper.h"
 #import <BaiduMapAPI_Map/BMKMapView.h>
 
 @implementation BMKMapViewManager
@@ -16,6 +18,10 @@ RCT_EXPORT_MODULE()
 - (UIView *)view {
     return [[BMKMapView alloc] init];
 }
+
+//////////////////////////////////////////////////////////
+// properties
+//////////////////////////////////////////////////////////
 
 // property delegate
 // property mapType
@@ -57,12 +63,42 @@ RCT_EXPORT_VIEW_PROPERTY(logoPosition, BMKLogoPosition)
 // property mapPadding
 // property updateTargetScreenPtWhenMapPaddingChanged
 // property ChangeWithTouchPointCenterEnabled
+
+
+#pragma mark LocationViewAPI
+
+// property BOOL showsUserLocation;
+RCT_EXPORT_VIEW_PROPERTY(showsUserLocation, BOOL)
+// property BMKUserTrackingMode userTrackingMode;
+RCT_EXPORT_VIEW_PROPERTY(userTrackingMode, BMKUserTrackingMode)
+
+// method -(void)updateLocationData:(BMKUserLocation*)userLocation;
+RCT_CUSTOM_VIEW_PROPERTY(userLocation, BMKUserLocation, BMKMapView) {
+    NSDictionary *dictionary = [RCTConvert NSDictionary:json];
+    BMKUserLocation *location = [[BMKUserLocation alloc] initWithDictionary:dictionary];
+    [view updateLocationData:location];
+}
 @end
 
+@implementation RCTConvert (BMKUserTrackingMode)
+
+RCT_ENUM_CONVERTER(
+        BMKUserTrackingMode,
+        (@{
+                @"BMKUserTrackingModeNone": @(BMKUserTrackingModeNone),
+                @"BMKUserTrackingModeHeading": @(BMKUserTrackingModeHeading),
+                @"BMKUserTrackingModeFollow": @(BMKUserTrackingModeFollow),
+                @"BMKUserTrackingModeFollowWithHeading": @(BMKUserTrackingModeFollowWithHeading)
+        }),
+        BMKUserTrackingModeNone,
+        integerValue)
+
+@end
 
 @implementation RCTConvert (BMKMapType)
 
-RCT_ENUM_CONVERTER(BMKMapType,
+RCT_ENUM_CONVERTER(
+        BMKMapType,
         (@{
                 @"BMKMapTypeNone": @(BMKMapTypeNone),
                 @"BMKMapTypeStandard": @(BMKMapTypeStandard),
@@ -75,7 +111,8 @@ RCT_ENUM_CONVERTER(BMKMapType,
 
 @implementation RCTConvert (BMKLogoPosition)
 
-RCT_ENUM_CONVERTER(BMKLogoPosition,
+RCT_ENUM_CONVERTER(
+        BMKLogoPosition,
         (@{
                 @"BMKLogoPositionLeftBottom": @(BMKLogoPositionLeftBottom),
                 @"BMKLogoPositionLeftTop": @(BMKLogoPositionLeftTop),
