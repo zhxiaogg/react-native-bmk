@@ -19,10 +19,16 @@ see this [demo project](https://github.com/zhxiaogg/react-native-bmk-demo).
     - [ ] MapView(InDoorMapAPI)
     - [ ] MapView(OverlaysAPI)
   - [ ] Search Module
+    - [ ] POI search
+    - [ ] Geocode search
+    - [ ] Suggestion search
+    - [ ] Others
   - [x] Location Module
     - [ ] ease of use: support multiple location service instance
     - [ ] optimization for event callback
   - [ ] Cloud Module
+    - [ ] POI list
+    - [ ] Cloud Search
   - [ ] Radar Module
   - [ ] Utils Module
 - [ ] Android (not supported yet, open for contribution)
