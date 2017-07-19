@@ -9,7 +9,7 @@ see this [demo project](https://github.com/zhxiaogg/react-native-bmk-demo).
 ## TODO (& milestone)
 
 - [ ] ios
-  - [ ] Base Module
+  - [x] Base Module
   - [ ] MapView Module
     - [x] MapView(basic properties & methods)
     - [x] MapView(events)

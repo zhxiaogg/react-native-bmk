@@ -1,6 +1,7 @@
 import { requireNativeComponent, NativeModules, NativeEventEmitter } from 'react-native';
 const {BMKLocationServiceManager} = NativeModules;
 const locationServiceEventEmitter = new NativeEventEmitter(BMKLocationServiceManager);
+import BMKMapManager from './libs/BMKMapManager';
 
 //TODO: due to the native modules' singleton nature, BMKLocationService can only be initialized once.
 class BMKLocationService {
@@ -35,5 +36,6 @@ class BMKLocationService {
 
 module.exports = {
   'BMKMapView': requireNativeComponent('BMKMapView', null),
-  'BMKLocationService': BMKLocationService
+  'BMKLocationService': BMKLocationService,
+  'BMKMapManager': BMKMapManager
 }
