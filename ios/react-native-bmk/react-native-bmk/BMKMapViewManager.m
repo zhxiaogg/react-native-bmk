@@ -145,8 +145,8 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     if (!mapView.onDidSelectAnnotationView) {
         return;
     }
-    RCT_BMKAnnotation *annotation = view.annotation;
-    if (annotation) {
+    if ([view.annotation isKindOfClass:[RCT_BMKAnnotation class]]) {
+        RCT_BMKAnnotation *annotation = view.annotation;
         mapView.onDidSelectAnnotationView([self annotationToDic:annotation]);
     }
 }
