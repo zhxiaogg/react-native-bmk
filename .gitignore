@@ -1,6 +1,5 @@
 node_modules/
 Pods/
-Podfile.lock
 xcuserdata
 npm-debug.log
 .DS_Store

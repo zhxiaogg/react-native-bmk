@@ -1,0 +1,53 @@
+PODS:
+  - BaiduMapKit_Subspec/Base (3.3.2)
+  - BaiduMapKit_Subspec/Cloud (3.3.2):
+    - BaiduMapKit_Subspec/Base
+  - BaiduMapKit_Subspec/Location (3.3.2):
+    - BaiduMapKit_Subspec/Base
+  - BaiduMapKit_Subspec/Map (3.3.2):
+    - BaiduMapKit_Subspec/Base
+  - BaiduMapKit_Subspec/Search (3.3.2):
+    - BaiduMapKit_Subspec/Base
+  - BaiduMapKit_Subspec/Utils (3.3.2):
+    - BaiduMapKit_Subspec/Base
+  - React/BatchedBridge (0.46.3):
+    - React/Core
+    - React/cxxreact_legacy
+  - React/Core (0.46.3):
+    - Yoga (= 0.46.3.React)
+  - React/cxxreact_legacy (0.46.3):
+    - React/jschelpers_legacy
+  - React/DevSupport (0.46.3):
+    - React/Core
+    - React/RCTWebSocket
+  - React/jschelpers_legacy (0.46.3)
+  - React/RCTWebSocket (0.46.3):
+    - React/Core
+  - Yoga (0.46.3.React)
+
+DEPENDENCIES:
+  - BaiduMapKit_Subspec/Base
+  - BaiduMapKit_Subspec/Cloud
+  - BaiduMapKit_Subspec/Location
+  - BaiduMapKit_Subspec/Map
+  - BaiduMapKit_Subspec/Search
+  - BaiduMapKit_Subspec/Utils
+  - React/BatchedBridge (from `../../node_modules/react-native`)
+  - React/Core (from `../../node_modules/react-native`)
+  - React/DevSupport (from `../../node_modules/react-native`)
+  - Yoga (from `../../node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: ../../node_modules/react-native
+  Yoga:
+    :path: ../../node_modules/react-native/ReactCommon/yoga
+
+SPEC CHECKSUMS:
+  BaiduMapKit_Subspec: ef244ebbd8896820bfe683af0efd632cd3aac9cf
+  React: c6559d70350c38f4cde7f66e3f483d6cce815ae3
+  Yoga: 6f09f11a4ab92e5afb4869268167f8c01c6ae906
+
+PODFILE CHECKSUM: 28dd924e709f95321f08d121ca35738e61a33e9a
+
+COCOAPODS: 1.3.0.beta.2
