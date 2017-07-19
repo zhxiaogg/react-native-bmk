@@ -4,8 +4,7 @@
 //
 
 #import "RCT_BMKAnnotation.h"
-#import "React/RCTConvert.h"
-#import "RCTConvert+CoreLocation.h"
+#import <React/RCTConvert+CoreLocation.h>
 
 
 @implementation RCT_BMKAnnotation {

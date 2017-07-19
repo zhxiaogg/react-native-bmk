@@ -3,8 +3,7 @@
 // Copyright (c) 2017 com.johnzh. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "RCTConvert.h"
+#import <React/RCTConvert.h>
 
 @interface RCTConvert (BMKMapView)
 

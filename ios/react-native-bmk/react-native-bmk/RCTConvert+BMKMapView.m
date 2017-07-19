@@ -9,7 +9,9 @@
 
 @implementation RCTConvert (BMKMapView)
 
-+ (RCT_BMKAnnotation *)BMKAnnotationImpl:(id)json {
+RCT_ARRAY_CONVERTER(RCT_BMKAnnotation)
+
++ (RCT_BMKAnnotation *)RCT_BMKAnnotation:(id)json {
     json = [self NSDictionary:json];
     return [[RCT_BMKAnnotation alloc] initWithDictionary:json];
 }

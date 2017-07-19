@@ -22,10 +22,7 @@ RCT_EXPORT_MODULE()
     return mapView;
 }
 
-#pragma mark properties
-//////////////////////////////////////////////////////////
-// properties
-//////////////////////////////////////////////////////////
+#pragma mark basic properties
 
 // property delegate
 // property mapType
@@ -137,7 +134,6 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     mapView.onRegionDidChange([self regionToDic:mapView.region]);
 }
 
-//TODO: send annotation view back
 - (void)mapView:(RCT_BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     if (!mapView.onDidAddAnnotationViews) {
         return;
@@ -149,14 +145,20 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     if (!mapView.onDidSelectAnnotationView) {
         return;
     }
-    mapView.onDidSelectAnnotationView(nil);
+    RCT_BMKAnnotation *annotation = view.annotation;
+    if (annotation) {
+        mapView.onDidSelectAnnotationView([self annotationToDic:annotation]);
+    }
 }
 
 - (void)mapView:(RCT_BMKMapView *)mapView didDeselectAnnotationView:(BMKAnnotationView *)view {
     if (!mapView.onDidDeselectAnnotationView) {
         return;
     }
-    mapView.onDidDeselectAnnotationView(nil);
+    RCT_BMKAnnotation *annotation = view.annotation;
+    if (annotation) {
+        mapView.onDidDeselectAnnotationView([self annotationToDic:annotation]);
+    }
 }
 
 - (void)mapView:(RCT_BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi *)mapPoi {
@@ -218,6 +220,15 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
             @"text": mapPoi.text == nil ? @"" : mapPoi.text,
             @"pt": [self coordinateToDic:mapPoi.pt],
             @"uid": mapPoi.uid == nil ? @"" : mapPoi.uid
+    };
+}
+
+- (NSDictionary *)annotationToDic:(RCT_BMKAnnotation *)annotation {
+    return @{
+            @"coordinate": [self coordinateToDic:annotation.coordinate],
+            @"title": annotation.title ?: @"",
+            @"subTitle": annotation.subtitle ?: @"",
+            @"identifier": annotation.identifier ?: @""
     };
 }
 
