@@ -3,9 +3,9 @@
 // Copyright (c) 2017 com.johnzh. All rights reserved.
 //
 
-#import "CLHeadingImpl.h"
+#import "RCT_CLHeading.h"
 
-@implementation CLHeadingImpl {
+@implementation RCT_CLHeading {
     CLLocationDirection _magneticHeading;
     CLLocationDirection _trueHeading;
     CLLocationDirection _headingAccuracy;

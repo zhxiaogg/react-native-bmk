@@ -5,14 +5,18 @@
 
 #import <BaiduMapAPI_Map/BMKMapView.h>
 #import <React/RCTComponent.h>
+#import "RCT_BMKAnnotation.h"
 
 
 /**
  * TODO: not all events are supported.
  */
-@interface ExtendedBMKMapView : BMKMapView
+@interface RCT_BMKMapView : BMKMapView {
+@private
+    NSMutableArray<NSString *> *_annotationIds;
+}
 
-#pragma mark Event support based on BMKMapViewDelegate
+#pragma mark event callbacks
 
 // note that all event callback names should prefixed with 'on'
 // eg. `didFinishLoading` should be renamed to `onDidFinishLoading`
@@ -46,5 +50,9 @@
 // mapStatusDidChanged:(BMKMapView *)mapView;
 @property(nonatomic, copy) RCTBubblingEventBlock onMapStatusDidChanged;
 // baseIndoorMapWithIn:(BOOL)flag baseIndoorMapInfo:(BMKBaseIndoorMapInfo *)info;
+
+#pragma mark AnnotationAPI
+
+- (void)setAnnotations:(NSArray <RCT_BMKAnnotation *> *)annotations;
 
 @end
