@@ -3,11 +3,11 @@
 // Copyright (c) 2017 com.johnzh. All rights reserved.
 //
 
-#import "RCTConvert+BMKPOISearch.h"
+#import "RCTConvert+BMKSearch.h"
 #import "RCTConvert+CoreLocation.h"
 
 
-@implementation RCTConvert (BMKPOISearch)
+@implementation RCTConvert (BMKSearch)
 
 + (BMKNearbySearchOption *)BMKNearbySearchOption:(id)json {
     json = [self NSDictionary:json];
@@ -58,5 +58,30 @@ RCT_ENUM_CONVERTER(
         }),
         BMK_POI_SORT_BY_COMPOSITE,
         integerValue)
+
++ (BMKSuggestionSearchOption *)BMKSuggestionSearchOption:(id)json {
+    json = [self NSDictionary:json];
+    BMKSuggestionSearchOption *option = [[BMKSuggestionSearchOption alloc] init];
+    option.cityname = [self NSString:json[@"cityName"]];
+    option.cityLimit = [self BOOL:json[@"cityLimit"]];
+    option.keyword = [self NSString:json[@"keyword"]];
+    return option;
+}
+
++ (BMKGeoCodeSearchOption *)BMKGeoCodeSearchOption:(id)json {
+    json = [self NSDictionary:json];
+    BMKGeoCodeSearchOption *option = [[BMKGeoCodeSearchOption alloc] init];
+    option.city = [self NSString:json[@"city"]];
+    option.address = [self NSString:json[@"address"]];
+    return option;
+}
+
++ (BMKReverseGeoCodeOption *)BMKReverseGeoCodeOption:(id)json {
+    json = [self NSDictionary:json];
+    BMKReverseGeoCodeOption *option = [[BMKReverseGeoCodeOption alloc] init];
+    option.reverseGeoPoint = [self CLLocationCoordinate2D:json[@"reverseGeoPoint"]];
+    return option;
+}
+
 
 @end

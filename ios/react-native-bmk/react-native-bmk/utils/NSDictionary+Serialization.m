@@ -132,4 +132,57 @@
     };
 }
 
++ (NSDictionary *)suggestionResultToDic:(BMKSuggestionResult *)suggestionResult {
+
+    NSMutableArray *ptList;
+    if ([[suggestionResult ptList] count] > 0) {
+        ptList = [[NSMutableArray alloc] initWithCapacity:[[suggestionResult ptList] count]];
+        CLLocationCoordinate2D coord;
+        for (int i = 0; i < [[suggestionResult ptList] count]; ++i) {
+            NSValue *value = [[suggestionResult ptList] objectAtIndex:i];
+            [value getValue:&coord];
+            [ptList addObject:[NSDictionary coordinateToDic:coord]];
+        }
+    }
+
+    return @{
+            @"cityList": [suggestionResult cityList],
+            @"keyList": [suggestionResult keyList],
+            @"poiIdList": [suggestionResult poiIdList],
+            @"districtList": [suggestionResult districtList],
+            @"ptList": ptList
+    };
+}
+
++ (NSDictionary *)reverseGeocodeResultToDic:(BMKReverseGeoCodeResult *)reverseGeocodeResult {
+
+    BMKAddressComponent *addressDetail = [reverseGeocodeResult addressDetail];
+    NSDictionary *addressDetailDic = @{
+            @"streetNumber": [addressDetail streetNumber] ?: @"",
+            @"streetName": [addressDetail streetName] ?: @"",
+            @"district": [addressDetail district] ?: @"",
+            @"city": [addressDetail city] ?: @"",
+            @"province": [addressDetail province] ?: @"",
+            @"country": [addressDetail country] ?: @"",
+            @"countryCode": [addressDetail countryCode] ?: @"",
+            @"adCode": [addressDetail adCode] ?: @""
+    };
+    return @{
+            @"address": [reverseGeocodeResult address] ?: @"",
+            @"businessCircle": [reverseGeocodeResult businessCircle] ?: @"",
+            @"cityCode": [reverseGeocodeResult cityCode] ?: @"",
+            @"sematicDescription": [reverseGeocodeResult sematicDescription] ?: @"",
+            @"location": [self coordinateToDic:[reverseGeocodeResult location]],
+            @"addressDetail": addressDetailDic
+
+    };
+}
+
++ (NSDictionary *)geocodeResultToDic:(BMKGeoCodeResult *)geocodeResult {
+    return @{
+            @"location": [self coordinateToDic:[geocodeResult location]],
+            @"address": [geocodeResult address] ?: @""
+    };
+}
+
 @end

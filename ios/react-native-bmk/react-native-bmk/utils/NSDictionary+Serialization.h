@@ -6,6 +6,9 @@
 #import <BaiduMapAPI_Base/BMKTypes.h>
 #import <BaiduMapAPI_Map/BMKMapView.h>
 #import <BaiduMapAPI_Search/BMKPoiSearch.h>
+#import <BaiduMapAPI_Search/BMKSuggestionSearch.h>
+#import <BaiduMapAPI_Search/BMKGeocodeSearch.h>
+
 #import "RCT_BMKAnnotation.h"
 
 @class RCT_BMKAnnotation;
@@ -24,4 +27,9 @@
 
 + (NSDictionary *)poiDetailToDic:(BMKPoiDetailResult *)poiDetailResult;
 
++ (NSDictionary *)suggestionResultToDic:(BMKSuggestionResult *)suggestionResult;
+
++ (NSDictionary *)geocodeResultToDic:(BMKGeoCodeResult *)geocodeResult;
+
++ (NSDictionary *)reverseGeocodeResultToDic:(BMKReverseGeoCodeResult *)reverseGeocodeResult;
 @end

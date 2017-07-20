@@ -5,8 +5,10 @@
 
 #import <React/RCTConvert.h>
 #import <BaiduMapAPI_Search/BMKPoiSearchOption.h>
+#import <BaiduMapAPI_Search/BMKSuggestionSearchOption.h>
+#import <BaiduMapAPI_Search/BMKGeocodeSearchOption.h>
 
-@interface RCTConvert (BMKPOISearch)
+@interface RCTConvert (BMKSearch)
 
 + (BMKNearbySearchOption *)BMKNearbySearchOption:(id)json;
 
@@ -17,5 +19,11 @@
 + (BMKPoiDetailSearchOption *)BMKPoiDetailSearchOption:(id)json;
 
 + (BMKPoiSortType)BMKPoiSortType:(id)json;
+
++ (BMKSuggestionSearchOption *)BMKSuggestionSearchOption:(id)json;
+
++ (BMKGeoCodeSearchOption *)BMKGeoCodeSearchOption:(id)json;
+
++ (BMKReverseGeoCodeOption *)BMKReverseGeoCodeOption:(id)json;
 
 @end
