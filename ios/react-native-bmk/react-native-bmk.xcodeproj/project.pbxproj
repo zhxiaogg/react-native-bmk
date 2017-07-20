@@ -12,12 +12,15 @@
 		3CD0FB011F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD0FB001F1CC97800D9F8EA /* TestBMKUserLocationDerSer.m */; };
 		EDFC7185DFD72B68E5D4D11B /* RCT_BMKMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC75E4CA6D4AA718F0D8CF /* RCT_BMKMapView.m */; };
 		EDFC719C3558BEAEC2E0D167 /* RCT_BMKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC73D1E5E3DA0E3D8E568A /* RCT_BMKAnnotation.m */; };
+		EDFC764174B05BAB57FAE35C /* BMKSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7F85F9BF59C83A84B870 /* BMKSearchManager.m */; };
+		EDFC767FD8AE74A9C0806475 /* RCTConvert+BMKSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7F9CD237BB0A2294EF00 /* RCTConvert+BMKSearch.m */; };
 		EDFC775722F0A1CB5CDF2925 /* BMKUserLocation+JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */; };
 		EDFC7B548C46A228BA1AD286 /* BMKLocationServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */; };
 		EDFC7CE9A2F1F1B3690F91F1 /* BMKUserLocation+Writable.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */; };
 		EDFC7D48695BDB1440B56373 /* RCT_CLHeading.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7AFA4E167149A068C3F3 /* RCT_CLHeading.m */; };
 		EDFC7DE7CD648DE6D419BF64 /* BMKMapManagerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC731363AA447D43C2A40F /* BMKMapManagerManager.m */; };
 		EDFC7F0AE847FD343A7F48F4 /* RCTConvert+BMKMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7620F58C3E2FC14691A8 /* RCTConvert+BMKMapView.m */; };
+		EDFC7FFA7BD04B65122A8D10 /* NSDictionary+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC7C400850ED3E8F8CA32C /* NSDictionary+Serialization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 		E0C0AA456C43EDAE8715A1B4 /* Pods-BMK_Bridge_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMK_Bridge_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BMK_Bridge_Tests/Pods-BMK_Bridge_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EDFC70D4666EF3EDA263CB67 /* BMKUserLocation+JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKUserLocation+JSONHelper.m"; sourceTree = "<group>"; };
 		EDFC71D02EAE6B5F8AECCDF6 /* BMKUserLocation+JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKUserLocation+JSONHelper.h"; sourceTree = "<group>"; };
+		EDFC72AF02C8B4D575DCCC50 /* NSDictionary+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serialization.h"; sourceTree = "<group>"; };
 		EDFC731363AA447D43C2A40F /* BMKMapManagerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKMapManagerManager.m; sourceTree = "<group>"; };
 		EDFC73139AABF22CC92CD2EE /* BMKUserLocation+Writable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMKUserLocation+Writable.m"; sourceTree = "<group>"; };
 		EDFC73D1E5E3DA0E3D8E568A /* RCT_BMKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCT_BMKAnnotation.m; sourceTree = "<group>"; };
@@ -62,12 +66,17 @@
 		EDFC7620F58C3E2FC14691A8 /* RCTConvert+BMKMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+BMKMapView.m"; sourceTree = "<group>"; };
 		EDFC762BFADFF617B1CD1610 /* RCT_BMKMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCT_BMKMapView.h; sourceTree = "<group>"; };
 		EDFC7663B30814888C094599 /* BMKUserLocation+Writable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMKUserLocation+Writable.h"; sourceTree = "<group>"; };
+		EDFC78A0E6301CE376C8F9CE /* BMKSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKSearchManager.h; sourceTree = "<group>"; };
 		EDFC7AFA4E167149A068C3F3 /* RCT_CLHeading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCT_CLHeading.m; sourceTree = "<group>"; };
+		EDFC7C400850ED3E8F8CA32C /* NSDictionary+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serialization.m"; sourceTree = "<group>"; };
 		EDFC7CBAE40A510E02390483 /* RCTConvert+BMKMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+BMKMapView.h"; sourceTree = "<group>"; };
 		EDFC7CDD0855F1E4FED3E6A0 /* RCT_CLHeading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCT_CLHeading.h; sourceTree = "<group>"; };
 		EDFC7D227C832E60912C8999 /* BMKLocationServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKLocationServiceManager.m; sourceTree = "<group>"; };
+		EDFC7D60D6D7417B0959C38C /* RCTConvert+BMKSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+BMKSearch.h"; sourceTree = "<group>"; };
 		EDFC7DB68B764123FBA210E2 /* RCT_BMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCT_BMKAnnotation.h; sourceTree = "<group>"; };
 		EDFC7F10A2446216EDB4C649 /* BMKLocationServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKLocationServiceManager.h; sourceTree = "<group>"; };
+		EDFC7F85F9BF59C83A84B870 /* BMKSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKSearchManager.m; sourceTree = "<group>"; };
+		EDFC7F9CD237BB0A2294EF00 /* RCTConvert+BMKSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+BMKSearch.m"; sourceTree = "<group>"; };
 		F65D1CA438F12539645FC967 /* Pods-BMK_Bridge_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMK_Bridge_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BMK_Bridge_Tests/Pods-BMK_Bridge_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +147,8 @@
 				EDFC7CBAE40A510E02390483 /* RCTConvert+BMKMapView.h */,
 				EDFC731363AA447D43C2A40F /* BMKMapManagerManager.m */,
 				EDFC75F1DA8B9753A132574E /* BMKMapManagerManager.h */,
+				EDFC79CC94F9E80594789C1E /* search */,
+				EDFC7512EB7F63E2507A2B0D /* utils */,
 			);
 			path = "react-native-bmk";
 			sourceTree = "<group>";
@@ -160,6 +171,26 @@
 				E0C0AA456C43EDAE8715A1B4 /* Pods-BMK_Bridge_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EDFC7512EB7F63E2507A2B0D /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				EDFC7C400850ED3E8F8CA32C /* NSDictionary+Serialization.m */,
+				EDFC72AF02C8B4D575DCCC50 /* NSDictionary+Serialization.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		EDFC79CC94F9E80594789C1E /* search */ = {
+			isa = PBXGroup;
+			children = (
+				EDFC7F85F9BF59C83A84B870 /* BMKSearchManager.m */,
+				EDFC78A0E6301CE376C8F9CE /* BMKSearchManager.h */,
+				EDFC7F9CD237BB0A2294EF00 /* RCTConvert+BMKSearch.m */,
+				EDFC7D60D6D7417B0959C38C /* RCTConvert+BMKSearch.h */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +388,9 @@
 				EDFC719C3558BEAEC2E0D167 /* RCT_BMKAnnotation.m in Sources */,
 				EDFC7F0AE847FD343A7F48F4 /* RCTConvert+BMKMapView.m in Sources */,
 				EDFC7DE7CD648DE6D419BF64 /* BMKMapManagerManager.m in Sources */,
+				EDFC764174B05BAB57FAE35C /* BMKSearchManager.m in Sources */,
+				EDFC7FFA7BD04B65122A8D10 /* NSDictionary+Serialization.m in Sources */,
+				EDFC767FD8AE74A9C0806475 /* RCTConvert+BMKSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

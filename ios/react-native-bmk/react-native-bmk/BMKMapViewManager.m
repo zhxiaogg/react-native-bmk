@@ -9,6 +9,7 @@
 #import "BMKMapViewManager.h"
 #import "BMKUserLocation+JSONHelper.h"
 #import "RCT_BMKMapView.h"
+#import "NSDictionary+Serialization.h"
 
 @implementation BMKMapViewManager {
 
@@ -124,14 +125,14 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     if (!mapView.onRegionWillChange) {
         return;
     }
-    mapView.onRegionWillChange([self regionToDic:mapView.region]);
+    mapView.onRegionWillChange([NSDictionary regionToDic:mapView.region]);
 }
 
 - (void)mapView:(RCT_BMKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     if (!mapView.onRegionDidChange) {
         return;
     }
-    mapView.onRegionDidChange([self regionToDic:mapView.region]);
+    mapView.onRegionDidChange([NSDictionary regionToDic:mapView.region]);
 }
 
 - (void)mapView:(RCT_BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
@@ -147,7 +148,7 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     }
     if ([view.annotation isKindOfClass:[RCT_BMKAnnotation class]]) {
         RCT_BMKAnnotation *annotation = view.annotation;
-        mapView.onDidSelectAnnotationView([self annotationToDic:annotation]);
+        mapView.onDidSelectAnnotationView([NSDictionary annotationToDic:annotation]);
     }
 }
 
@@ -157,7 +158,7 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     }
     RCT_BMKAnnotation *annotation = view.annotation;
     if (annotation) {
-        mapView.onDidDeselectAnnotationView([self annotationToDic:annotation]);
+        mapView.onDidDeselectAnnotationView([NSDictionary annotationToDic:annotation]);
     }
 }
 
@@ -165,28 +166,28 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     if (!mapView.onClickedMapPoi) {
         return;
     }
-    mapView.onClickedMapPoi([self mapPoiToDic:mapPoi]);
+    mapView.onClickedMapPoi([NSDictionary mapPoiToDic:mapPoi]);
 }
 
 - (void)mapView:(RCT_BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
     if (!mapView.onClickedMapBlank) {
         return;
     }
-    mapView.onClickedMapBlank([self coordinateToDic:coordinate]);
+    mapView.onClickedMapBlank([NSDictionary coordinateToDic:coordinate]);
 }
 
 - (void)mapview:(RCT_BMKMapView *)mapView onDoubleClick:(CLLocationCoordinate2D)coordinate {
     if (!mapView.onDoubleClick) {
         return;
     }
-    mapView.onDoubleClick([self coordinateToDic:coordinate]);
+    mapView.onDoubleClick([NSDictionary coordinateToDic:coordinate]);
 }
 
 - (void)mapview:(RCT_BMKMapView *)mapView onLongClick:(CLLocationCoordinate2D)coordinate {
     if (!mapView.onLongClick) {
         return;
     }
-    mapView.onLongClick([self coordinateToDic:coordinate]);
+    mapView.onLongClick([NSDictionary coordinateToDic:coordinate]);
 }
 
 //TODO: send map status back
@@ -197,40 +198,6 @@ RCT_EXPORT_VIEW_PROPERTY(onMapStatusDidChanged, RCTBubblingEventBlock)
     mapView.onMapStatusDidChanged(nil);
 }
 
-// helper functions:
-- (NSDictionary *)coordinateToDic:(CLLocationCoordinate2D)coordinate {
-    return @{
-            @"longitude": @(coordinate.longitude),
-            @"latitude": @(coordinate.latitude)
-    };
-}
-
-- (NSDictionary *)regionToDic:(BMKCoordinateRegion)region {
-    return @{
-            @"center": [self coordinateToDic:region.center],
-            @"span": @{
-                    @"latitudeDelta": @(region.span.latitudeDelta),
-                    @"longitudeDelta": @(region.span.longitudeDelta)
-            }
-    };
-}
-
-- (NSDictionary *)mapPoiToDic:(BMKMapPoi *)mapPoi {
-    return @{
-            @"text": mapPoi.text == nil ? @"" : mapPoi.text,
-            @"pt": [self coordinateToDic:mapPoi.pt],
-            @"uid": mapPoi.uid == nil ? @"" : mapPoi.uid
-    };
-}
-
-- (NSDictionary *)annotationToDic:(RCT_BMKAnnotation *)annotation {
-    return @{
-            @"coordinate": [self coordinateToDic:annotation.coordinate],
-            @"title": annotation.title ?: @"",
-            @"subTitle": annotation.subtitle ?: @"",
-            @"identifier": annotation.identifier ?: @""
-    };
-}
 
 #pragma mark Annotation API
 

@@ -2,6 +2,9 @@ import { requireNativeComponent, NativeModules, NativeEventEmitter } from 'react
 const {BMKLocationServiceManager} = NativeModules;
 const locationServiceEventEmitter = new NativeEventEmitter(BMKLocationServiceManager);
 import BMKMapManager from './libs/BMKMapManager';
+import POISearch from './libs/POISearch';
+import POISearch from './libs/SuggestionSearch';
+import POISearch from './libs/Geocode';
 
 //TODO: due to the native modules' singleton nature, BMKLocationService can only be initialized once.
 class BMKLocationService {
@@ -37,5 +40,8 @@ class BMKLocationService {
 module.exports = {
   'BMKMapView': requireNativeComponent('BMKMapView', null),
   'BMKLocationService': BMKLocationService,
-  'BMKMapManager': BMKMapManager
+  'BMKMapManager': BMKMapManager,
+  'POISearch': POISearch,
+  'SuggestionSearch': SuggestionSearch,
+  'Geocode': Geocode,
 }

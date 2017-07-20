@@ -4,8 +4,6 @@
 //
 
 #import "RCTConvert+BMKMapView.h"
-#import "RCT_BMKAnnotation.h"
-#import <BaiduMapAPI_Map/BMKMapView.h>
 
 @implementation RCTConvert (BMKMapView)
 
