@@ -4,7 +4,6 @@
 //
 
 #import "RCTConvert+BMKSearch.h"
-#import "RCTConvert+CoreLocation.h"
 
 
 @implementation RCTConvert (BMKSearch)

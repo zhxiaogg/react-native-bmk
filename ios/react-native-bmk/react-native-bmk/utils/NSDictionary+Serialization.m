@@ -98,9 +98,9 @@
             @"totalPoiNum": @([poiResult totalPoiNum]),
             @"currPoiNum": @([poiResult currPoiNum]),
             @"isHavePoiAddressInfoList": @(poiResult.isHavePoiAddressInfoList),
-            @"poiInfoList": poiInfoListDic,
-            @"cityList": cityListDic,
-            @"poiAddressInfoList": addressListDic
+            @"poiInfoList": poiInfoListDic ?: @[],
+            @"cityList": cityListDic ?: @[],
+            @"poiAddressInfoList": addressListDic ?: @[]
     };
     return result;
 }
@@ -150,7 +150,7 @@
             @"keyList": [suggestionResult keyList],
             @"poiIdList": [suggestionResult poiIdList],
             @"districtList": [suggestionResult districtList],
-            @"ptList": ptList
+            @"ptList": ptList ?: @[]
     };
 }
 

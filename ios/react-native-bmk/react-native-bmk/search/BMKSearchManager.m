@@ -17,8 +17,11 @@
     self = [super init];
     if (self) {
         _searcher = [[BMKPoiSearch alloc] init];
+        _searcher.delegate = self;
         _suggestionSearcher = [[BMKSuggestionSearch alloc] init];
+        _suggestionSearcher.delegate = self;
         _geoCodeSearcher = [[BMKGeoCodeSearch alloc] init];
+        _geoCodeSearcher.delegate = self;
     }
     return self;
 }
@@ -118,7 +121,7 @@ RCT_EXPORT_METHOD(suggestionSearch:
 
 #pragma mark Geocode search
 
-RCT_EXPORT_METHOD(geoCode:
+RCT_EXPORT_METHOD(geocode:
     (BMKGeoCodeSearchOption *) option) {
     BOOL result = [_geoCodeSearcher geoCode:option];
     if (result == NO) {
@@ -126,7 +129,7 @@ RCT_EXPORT_METHOD(geoCode:
     }
 }
 
-RCT_EXPORT_METHOD(reverseGeoCode:
+RCT_EXPORT_METHOD(reverseGeocode:
     (BMKReverseGeoCodeOption *) option) {
     BOOL result = [_geoCodeSearcher reverseGeoCode:option];
     if (result == NO) {

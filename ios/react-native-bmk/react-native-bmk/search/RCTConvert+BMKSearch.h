@@ -7,6 +7,7 @@
 #import <BaiduMapAPI_Search/BMKPoiSearchOption.h>
 #import <BaiduMapAPI_Search/BMKSuggestionSearchOption.h>
 #import <BaiduMapAPI_Search/BMKGeocodeSearchOption.h>
+#import <React/RCTConvert+CoreLocation.h>
 
 @interface RCTConvert (BMKSearch)
 

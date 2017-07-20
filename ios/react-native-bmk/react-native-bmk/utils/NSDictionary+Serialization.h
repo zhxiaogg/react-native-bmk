@@ -11,8 +11,6 @@
 
 #import "RCT_BMKAnnotation.h"
 
-@class RCT_BMKAnnotation;
-
 @interface NSDictionary (Serialization)
 
 + (NSDictionary *)coordinateToDic:(CLLocationCoordinate2D)coordinate;

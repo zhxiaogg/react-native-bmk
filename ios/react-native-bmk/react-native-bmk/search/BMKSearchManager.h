@@ -8,7 +8,6 @@
 #import <BaiduMapAPI_Search/BMKSuggestionSearch.h>
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import "BMKSuggestionSearch.h"
 
 @interface BMKSearchManager : RCTEventEmitter <RCTBridgeModule, BMKPoiSearchDelegate,BMKGeoCodeSearchDelegate,BMKSuggestionSearchDelegate>
 

@@ -10,7 +10,7 @@ see this [demo project](https://github.com/zhxiaogg/react-native-bmk-demo).
 
 - [ ] ios
   - [x] Base Module
-  - [ ] MapView Module
+  - [x] MapView Module
     - [x] MapView(basic properties & methods)
     - [x] MapView(events)
     - [x] MapView(LocationViewAPI)
@@ -18,13 +18,12 @@ see this [demo project](https://github.com/zhxiaogg/react-native-bmk-demo).
     - [ ] MapView(HeatMapAPI)
     - [ ] MapView(InDoorMapAPI)
     - [ ] MapView(OverlaysAPI)
-  - [ ] Search Module
-    - [ ] POI search
-    - [ ] Geocode search
-    - [ ] Suggestion search
+  - [x] Search Module
+    - [x] POI search
+    - [x] Geocode search
+    - [x] Suggestion search
     - [ ] Others
   - [x] Location Module
-    - [ ] ease of use: support multiple location service instance
     - [ ] optimization for event callback
   - [ ] Cloud Module
     - [ ] POI list
